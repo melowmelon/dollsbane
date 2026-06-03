@@ -1,0 +1,234 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Press Start 2P', monospace;
+    }
+
+    .gameboy {
+      width: 520px;
+      background: #c8c8b8;
+      border-radius: 16px 16px 60px 14px;
+      padding: 24px 20px 32px;
+      box-shadow:
+        4px 6px 0 #888,
+        inset 0 2px 0 #e8e8d8,
+        inset 0 -2px 0 #aaa;
+      border: 2px solid #aaa;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding: 0 4px;
+    }
+
+    .brand {
+      font-size: 7px;
+      color: #666;
+      letter-spacing: 3px;
+    }
+
+    .led-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .led-label {
+      font-size: 5px;
+      color: #888;
+      letter-spacing: 1px;
+    }
+
+    .led {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #44ff44;
+      box-shadow: 0 0 6px #44ff44, 0 0 12px #22cc22;
+      border: 1px solid #22aa22;
+    }
+
+    .screen-housing {
+      background: #777;
+      border-radius: 10px 10px 6px 6px;
+      padding: 16px;
+      box-shadow: inset 0 3px 8px rgba(0,0,0,0.6);
+      margin-bottom: 18px;
+    }
+
+    .screen-label {
+      font-size: 5px;
+      color: #aaa;
+      letter-spacing: 4px;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .screen-bezel {
+      background: #444;
+      border-radius: 6px;
+      padding: 10px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    #game-canvas {
+      display: block;
+      border-radius: 3px;
+      image-rendering: pixelated;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 0 8px;
+    }
+
+    .dpad-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dpad {
+      display: grid;
+      grid-template-columns: 28px 28px 28px;
+      grid-template-rows: 28px 28px 28px;
+      gap: 2px;
+    }
+
+    .dpad-btn {
+      background: #444;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      font-size: 9px;
+      cursor: pointer;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 2px 0 #222;
+      user-select: none;
+    }
+
+    .dpad-btn:active { box-shadow: none; transform: translateY(1px); }
+    .dpad-empty { background: transparent; box-shadow: none; cursor: default; }
+    .dpad-center { background: #333; border-radius: 50%; cursor: default; }
+
+    .ab-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding-top: 14px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #a00060;
+      box-shadow: 0 4px 0 #600030, inset 0 1px 0 rgba(255,255,255,0.2);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 9px;
+      user-select: none;
+    }
+
+    .btn-circle:active { transform: translateY(3px); box-shadow: 0 1px 0 #600030; }
+    .btn-b { margin-top: 14px; }
+
+    .btn-label {
+      font-size: 5px;
+      color: #666;
+      letter-spacing: 1px;
+    }
+
+    .select-start {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 16px;
+      padding: 0 8px;
+    }
+
+    .btn-pill-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn-pill {
+      background: #666;
+      border-radius: 20px;
+      padding: 6px 14px;
+      color: #ccc;
+      font-size: 5px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 #333, inset 0 1px 0 rgba(255,255,255,0.1);
+      user-select: none;
+    }
+
+    .btn-pill:active { transform: translateY(1px); box-shadow: none; }
+
+    .speaker {
+      display: flex;
+      justify-content: flex-end;
+      gap: 4px;
+      padding-right: 12px;
+      margin-top: 20px;
+      transform: rotate(-30deg);
+      transform-origin: right center;
+    }
+
+    .speaker-col {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .speaker-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #aaa;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,0.4);
+    }
+
+    .cart-slot {
+      margin: 20px 20px 0;
+      background: #aaa;
+      border-radius: 4px;
+      padding: 6px 10px;
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .cart-pin {
+      width: 10px;
+      height: 16px;
+      background: #888;
+      border-radius: 1px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    }
